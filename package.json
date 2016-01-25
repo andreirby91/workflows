@@ -1,10 +1,14 @@
 {
-  "name": "Workflow Training",
+  "name": "WorkflowTraining",
   "version": "0.0.1",
   "description": "Workflow Training",
   "repository": {
     "type": "git",
     "url": "?.git"
   },
-  "author": "Andrei Beraru"
+  "author": "Andrei Beraru",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.7"
+  }
 }
