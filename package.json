@@ -1,0 +1,10 @@
+{
+  "name": "Workflow Training",
+  "version": "0.0.1",
+  "description": "Workflow Training",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Andrei Beraru"
+}
