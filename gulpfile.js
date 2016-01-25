@@ -45,6 +45,6 @@ gulp.task('watch', function(){
     gulp.watch('components/sass/*.scss', ['compass']);
 });
 
-gulp.task('default', ['coffee', 'js', 'compass']);
+gulp.task('default', ['coffee', 'js', 'compass', 'watch']);
 /*['coffee', 'js', 'compass']-- are depencecies so will run in order|| */
 /*gulp.task('default') is the default task that runs when you type in command gulp */
