@@ -5,6 +5,8 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     compass = require('gulp-compass'),
     connect = require('gulp-connect'),
+    gulpif = require('gulp-if'),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
 
 var env,
@@ -16,11 +18,11 @@ var env,
     outputDir,
     sassStyle;
 
-env = process.env.NODE_ENV || 'development';
+env = process.env.NODE_ENV || 'dev';
 
-if (env === 'development'){
+if (env === 'dev'){
   outputDir = 'builds/development/';
-  sassStyle = 'extended';
+  sassStyle = 'expanded';
 }else{
   outputDir = 'builds/production/';
   sassStyle = 'compressed';
@@ -53,6 +55,7 @@ gulp.task('js', function(){
   gulp.src(jsSources)
     .pipe(concat('script.js'))
     .pipe(browserify())
+    .pipe(gulpif(env === 'prod', uglify()))
     .pipe(gulp.dest(outputDir + 'js'))
     .pipe(connect.reload())
 });
@@ -101,3 +104,7 @@ gulp.task('watch', function(){
 //gulp.task('default') is the default task that runs when you type in command gulp
 //['coffee', 'js', 'compass']-- are depencecies so will run in order||
 gulp.task('default', ['html','json','coffee', 'js', 'compass', 'connect', 'watch']);
+
+
+//====>
+//Compile on PROD OR DEV FROM CONSOLE => NODE_ENV=prod/dev gulp
